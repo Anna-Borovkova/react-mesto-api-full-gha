@@ -1,0 +1,15 @@
+.places__list {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  gap: 17px;
+  justify-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .places__list {
+    gap: 20px;
+  }
+}

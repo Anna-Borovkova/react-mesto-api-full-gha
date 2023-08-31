@@ -1,0 +1,7 @@
+.popup_opacity_light:after {
+  opacity: 0.5;
+}
+
+.popup_opacity_dark:after {
+  opacity: 0.9;
+}

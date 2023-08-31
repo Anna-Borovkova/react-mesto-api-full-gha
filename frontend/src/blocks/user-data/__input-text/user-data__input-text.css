@@ -1,0 +1,13 @@
+.user-data__input-text {
+  background-color: #000000;
+  padding-top: 25px;
+  padding-bottom: 11px;
+  border: 0;
+  border-bottom: 1px solid #ffffff;
+  width: 358px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}

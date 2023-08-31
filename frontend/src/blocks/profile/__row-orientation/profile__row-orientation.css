@@ -1,0 +1,5 @@
+.profile__row-orientation {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}

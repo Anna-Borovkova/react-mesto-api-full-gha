@@ -1,0 +1,14 @@
+.user-data__link-text {
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-decoration: none;
+}
+
+.user-data__link-text:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.5s;
+}

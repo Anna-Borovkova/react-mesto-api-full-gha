@@ -1,0 +1,9 @@
+.place__like-number {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  text-overflow: ellipsis;
+}

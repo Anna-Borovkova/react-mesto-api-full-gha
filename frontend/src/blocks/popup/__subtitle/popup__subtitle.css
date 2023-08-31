@@ -1,0 +1,11 @@
+.popup__subtitle {
+  padding: 0;
+  display: flex;
+  margin: 0 auto 60px;
+  width: 358px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+}
