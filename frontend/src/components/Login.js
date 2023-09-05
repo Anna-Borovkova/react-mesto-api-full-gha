@@ -10,13 +10,11 @@ function Login({ handleLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     auth
       .authorize(values.email, values.password)
       .then((res) => {
         handleLogin();
         navigate("/");
-        localStorage.setItem("jwt", res.token);
         console.log(res);
       })
       .catch((err) => {

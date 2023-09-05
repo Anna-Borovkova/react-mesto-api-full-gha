@@ -17,7 +17,7 @@ const createCard = (req, res, next) => {
   const owner = req.user._id;
   Card.create({ name, link, owner })
     .then((card) => {
-      res.status(httpConstants.HTTP_STATUS_CREATED).send({ card });
+      res.status(httpConstants.HTTP_STATUS_CREATED).send(card);
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {

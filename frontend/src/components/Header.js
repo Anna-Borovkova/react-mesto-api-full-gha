@@ -7,16 +7,31 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import * as auth from "../utils/Auth";
 
 function Header(props) {
   const location = useLocation();
 
   const navigate = useNavigate();
-  function signOut() {
-    localStorage.removeItem("jwt");
-    props.handleSingOut();
-    navigate("/signin");
-  }
+
+  // function signOut() {
+  //   localStorage.removeItem("jwt");
+  //   props.handleSingOut();
+  //   navigate("/signin");
+  // }
+
+  function signOut () {
+    auth
+      .signOut()
+      .then((res) => {
+        props.handleSignOut();
+        navigate("/signin");
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <header className="header page__header">
@@ -44,9 +59,7 @@ function Header(props) {
         )}
         {location.pathname == "/" && (
           <>
-            <div className="header__user-email">
-              {props.userData?.data.email}
-            </div>
+            <div className="header__user-email">{props.userData?.email}</div>
             <button
               className="header__button header__button_light"
               type="button"

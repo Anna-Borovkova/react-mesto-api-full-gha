@@ -25,6 +25,7 @@ export const register = (email, password) => {
 export const authorize = (email, password) => {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
+    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -35,13 +36,20 @@ export const authorize = (email, password) => {
   }).then((res) => checkResponse(res));
 };
 
+export const signOut = () => {
+  return fetch(`${baseUrl}/signout`, {
+    method: "GET",
+    credentials: 'include',
+  }).then((res) => checkResponse(res));
+};
+
 export const getContent = () => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     credentials: 'include',
-    headers: {
-      "Content-Type": "application/json",
-      // Authorization: `Bearer ${token}`,
-    },
+    // headers: {
+    //   "Content-Type": "application/json",
+    //   // Authorization: `Bearer ${token}`,
+    // },
   }).then((res) => checkResponse(res));
 };

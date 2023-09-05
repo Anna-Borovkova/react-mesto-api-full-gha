@@ -40,7 +40,7 @@ function App() {
         getCards(cardsData);
       })
       .catch(console.error);
-  }, []);
+  }, [isLoggedIn]);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -67,8 +67,7 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
-
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
       .changeLikeCardStatus(card._id, isLiked)
@@ -90,15 +89,10 @@ function App() {
   }
 
   function handleSubmit(request) {
-    // изменяем текст кнопки до вызова запроса
     setIsLoading(true);
     request()
-      // закрывать попап нужно только в `then`
       .then(closeAllPopups)
-      // в каждом запросе нужно ловить ошибку
-      // console.error обычно используется для логирования ошибок, если никакой другой обработки ошибки нет
       .catch(console.error)
-      // в каждом запросе в `finally` нужно возвращать обратно начальный текст кнопки
       .finally(() => setIsLoading(false));
   }
 
@@ -120,12 +114,14 @@ function App() {
 
   function handleAddPlaceSubmit(card) {
     function makeRequest() {
-      return api.postNewCard(card.title, card.link).then((newCard) => {
-        getCards([newCard, ...cards]);
+      return api.postNewCard(card.title, card.link).then((createdCard) => {
+        const newCard = createdCard;
+        getCards([newCard, ...cards]);      
       });
     }
     handleSubmit(makeRequest);
   }
+
 
   const checkToken = () => {
     // const jwt = localStorage.getItem("jwt");
@@ -156,7 +152,7 @@ function App() {
         <AppContext.Provider value={{ isLoading, closeAllPopups }}>
           <CurrentUserContext.Provider value={currentUser}>
             <Header
-              handleSingOut={() => setLoggedIn(false)}
+              handleSignOut={() => setLoggedIn(false)}
               userData={currentUserAuth}
             />
             <Routes>
