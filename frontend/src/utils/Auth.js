@@ -1,4 +1,3 @@
-// const baseUrl = "https://auth.nomoreparties.co";
 const baseUrl = "http://localhost:3000";
 
 const checkResponse = (res) => {
@@ -47,9 +46,5 @@ export const getContent = () => {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
     credentials: 'include',
-    // headers: {
-    //   "Content-Type": "application/json",
-    //   // Authorization: `Bearer ${token}`,
-    // },
   }).then((res) => checkResponse(res));
 };

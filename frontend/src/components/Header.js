@@ -14,12 +14,6 @@ function Header(props) {
 
   const navigate = useNavigate();
 
-  // function signOut() {
-  //   localStorage.removeItem("jwt");
-  //   props.handleSingOut();
-  //   navigate("/signin");
-  // }
-
   function signOut () {
     auth
       .signOut()
