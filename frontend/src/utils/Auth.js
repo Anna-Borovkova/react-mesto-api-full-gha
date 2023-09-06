@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:3001";
+// const baseUrl = "http://localhost:3001";
+const baseUrl = "https://api.mestoab.students.nomoredomainsicu.ru";
 
 const checkResponse = (res) => {
   if (res.ok) {

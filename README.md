@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 84.201.136.38
 
-Frontend https://...
+Frontend https://mestoab.students.nomoredomainsicu.ru/
 
-Backend https://...
+Backend https://api.mestoab.students.nomoredomainsicu.ru/
