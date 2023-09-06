@@ -31,6 +31,8 @@ app.use(helmet());
 
 app.use(router);
 
+console.log(process.env.NODE_ENV);
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
