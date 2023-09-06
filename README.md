@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.136.38
+IP 84.201.136.38
 
 Frontend https://mestoab.students.nomoredomainsicu.ru/
 
