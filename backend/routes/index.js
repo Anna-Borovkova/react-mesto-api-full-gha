@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
-const { errors } = require('celebrate');
 const usersRouter = require('./users');
 const cardsRouter = require('./cards');
 const NotFoundError = require('../errors/not-found-error');
@@ -10,9 +9,6 @@ const {
   login,
 } = require('../controllers/users');
 const auth = require('../middlewares/auth');
-const { requestLogger, errorLogger } = require('../middlewares/logger');
-
-router.use(requestLogger); // подключаем логгер запросов
 
 router.get('/crash-test', () => {
   setTimeout(() => {
@@ -50,9 +46,5 @@ router.use(cardsRouter);
 router.use('*', (req, res, next) => {
   next(new NotFoundError('Route not found'));
 });
-
-router.use(errorLogger); // подключаем логгер ошибок
-
-router.use(errors());
 
 module.exports = router;

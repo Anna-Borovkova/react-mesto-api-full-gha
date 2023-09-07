@@ -5,8 +5,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
-
+const { errors } = require('celebrate');
 const router = require('./routes/index');
+const errorHandler = require('./middlewares/error-handler');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 const { PORT = 3000, MONGODB_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
@@ -29,7 +31,14 @@ app.use(cors({
 
 app.use(helmet());
 
+app.use(requestLogger); // подключаем логгер запросов
+
 app.use(router);
+
+app.use(errors());
+app.use(errorHandler);
+
+app.use(errorLogger); // подключаем логгер ошибок
 
 console.log(process.env.NODE_ENV);
 
