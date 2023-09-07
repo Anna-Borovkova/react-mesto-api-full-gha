@@ -35,10 +35,10 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.use(router);
 
+app.use(errorLogger); // подключаем логгер ошибок
+
 app.use(errors());
 app.use(errorHandler);
-
-app.use(errorLogger); // подключаем логгер ошибок
 
 console.log(process.env.NODE_ENV);
 
